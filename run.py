@@ -12,11 +12,15 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_sandwiches')
 
-sales = SHEET.worksheet('sales')
+def get_sales_data():
+    """
+    Get sales figures input from the user
+    """
+    print("please enter sales from the last market.")
+    print("Data should be six numbers, separated y commas")
+    print("example:10,20,30,40,50,60")
 
-data = sales.get_all_values()
+    data_str = input("Enter your data here")
+    print("the data provided is {data_str}")
 
-print(data)
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+get_sales_data()
